@@ -4,14 +4,16 @@ import './feedTitle.css';
 
 class FeedTitle extends Component {
   render() {
+    const props = { name: "Mo"}
+
     return (
       <div>
-    <div class="container">
-    </div>
-        <h1>Your Personalized Feed</h1>
+    <div className="container">
+        <h1>{`${props.name}'s Personalized Feed`}</h1>
         <p>Pursuit Tube</p>
    
       </div>
+       </div>
     );
   }
 }
