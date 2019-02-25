@@ -1,7 +1,30 @@
 import React, {Component} from 'react';
-import Axios from 'axios'
+import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Link} from 'react-router-dom';
+
+
+
+const search = (search_q) => {
+axios({
+  method: 'get',
+  url: 'https://www.googleapis.com/youtube/v3/search',
+  params: {
+    part: 'snippet',
+    maxResults: 8,
+    videoDefinition: 'high',
+    type: 'video',
+    videoEmbeddable: 'true',
+    key: 'AIzaSyDtAqZXePfycqRHFBWKigdq0MqfhQvpRjs',
+    q: 'search_q',
+    pageToken: ''
+  }
+})
+.then((data) => {
+  console.log(data)
+})
+}
+
 
 
 class App extends Component {
@@ -9,9 +32,12 @@ class App extends Component {
     return ( 
       <BrowserRouter>
       <Home path = '/' component = {Home}/>
-      {/* <Link to='/aboutus'>Go To About Us</Link> */}
+       {/* <Link to='/aboutus'>Go To About Us</Link>  */}
       </BrowserRouter>
     );
+  }
+  componentDidMount (){
+    search('puppies')
   }
 }
 
