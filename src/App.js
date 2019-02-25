@@ -12,15 +12,18 @@ class App extends React.Component {
         <div>
           <div className="logo">
             <h1>Pursuit Tube</h1>
-          <ul className="header">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/user">User</NavLink></li>
-            <li><NavLink to="/feededitor">Feed Editor</NavLink></li>
-          </ul>
-          <div className="content">
-            <Route exact path="/" component={Home} />
-            <Route path="/user" component={User} />
-            <Route path="/feededitor" component={feededitor} />
+            <ul className="header">
+              <li><NavLink to="/">Home</NavLink></li>
+              <li><NavLink to="/user">User</NavLink></li>
+              <li><NavLink to="/feededitor">Feed Editor</NavLink></li>
+              <input type="text" className="input" placeholder="Search..." />
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+              <button type="submit"><i className="fa fa-search"></i></button>
+            </ul>
+            <div className="content">
+              <Route exact path="/" component={Home} />
+              <Route path="/user" component={User} />
+              <Route path="/feededitor" component={feededitor} />
             </div>
           </div>
         </div>
