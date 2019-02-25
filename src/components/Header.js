@@ -1,17 +1,16 @@
 import React from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
+import './Header.css';
 import Home from './containers/home';
 import User from './containers/user';
-import './App.css';
 import feededitor from './containers/feededitor';
 
-class App extends React.Component {
+class Header extends React.Component {
   render() {
     return (
       <HashRouter>
         <div>
-          <div className="logo">
-            <h1>Pursuit Tube</h1>
+          <h1>Pursuit Tube</h1>
           <ul className="header">
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/user">User</NavLink></li>
@@ -21,7 +20,6 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/user" component={User} />
             <Route path="/feededitor" component={feededitor} />
-            </div>
           </div>
         </div>
       </HashRouter>
@@ -29,5 +27,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
-
+export default Header;
