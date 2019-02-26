@@ -1,0 +1,98 @@
+body {
+    background-color: black;
+    padding: 20px;
+    margin: 0;
+  }
+  h2, p, ul, li {
+    font-family: sans-serif;
+  }
+
+  .logo h1{
+        color:#fff;
+        font-size:80px;
+        text-align: right;
+        text-shadow: 0px -1px 2px white,
+        0px -3px 6px rgba(255,200,200,1),
+        0px -6px 12px rgba(255,150,100,1),
+        0px -10px 20px rgba(255,100,100,1),
+        0px -15px 30px rgba(255,50,50,1),
+        0px -21px 42px rgba(255,0,0,1);
+        animation:fire 0.01s ease infinite,colorSpin 10s linear infinite;
+        font-family:Sans-serif;
+      }
+      @keyframes fire{
+        50%{
+          text-shadow:0px -4px 8px white,
+        0px -12px 24px rgba(255,200,200,1),
+        0px -24px 48px rgba(255,150,100,1),
+        0px -40px 80px rgba(255,100,100,1),
+        0px -60px 120px rgba(255,50,50,1),
+        0px -84px 168px rgba(255,0,0,1);
+        
+          }
+      }
+      
+      @keyframes colorSpin{
+        to{filter:hue-rotate(360deg)}
+      }
+
+
+  ul.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+  }
+  ul.header {
+    background-color: black;
+    padding: 0;
+  }
+  ul.header li a {
+    color: #FFF;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 25px;
+    display: inline-block;
+    width: 160px;
+    border: 1px solid #434ae6;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  .header button {
+    float: right;
+    max-width: 20%;
+    padding: 13px;
+    background: #434ae6;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .header button:hover {
+    background: black;
+  }
+
+  .header input[type=text] {
+    float: right;
+    padding: 12px;
+    font-size: 20px;
+    max-width: 80%;
+    background: white;
+  }
+  
+ 
+  
+  .content {
+    background-color: #FFF;
+    padding: 20px;
+  }
+  .content h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .content li {
+    margin-bottom: 10px;
+  }
+
+  
