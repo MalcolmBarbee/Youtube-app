@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
-import Axios, from 'axios';
-import '../components/feedcard';
+import React, { Component } from "react";
+import FeedCard from '../components/feedcard';
+import axios from 'axios'
 
 class Feed extends Component {
     constructor (props) {
         super(props)
-
+        
         this.state={
             videos: []
         }
-    }
 
-    search = (search_q) => {
+    }
+     search = (search_q) => {
         axios({
           method: 'get',
           url: 'https://www.googleapis.com/youtube/v3/search',
@@ -28,25 +28,25 @@ class Feed extends Component {
         })
           .then((response) => {
             console.log(response.data)
-            this.setState({videos: response.data.items})
+            this.setState({videos:response.data.items})
           })
       }
-      componentDidMount() {
-        this.search('Oscars')
+    componentDidMount(){
+        this.search(this.props.search)
     }
-    render () {
+    render() {
         console.log(this.state)
-        return(
+        return (
             <>
-            <h4>ESPN</h4>
-            <div className='row'>
-            {
-                this.state.videos.map((video,i) => {
-                    return <div className='col-3'><FeedCard image={video.snippet.thumbnails.medium.url} title={video.snippet.title} channel={video.snippet.channelTitle} time={video.snippet.publishedAt}/></div>
-                })
-            }
-                
-            </div>
+                <h4>{this.props.search}</h4>
+                <div className='row'>
+                {
+                    this.state.videos.map((video,i) => {
+                        return <div className='col-3'><FeedCard title={video.snippet.title} image={video.snippet.thumbnails.medium.url} channel={video.snippet.channelTitle} time={video.snippet.publishedAt}/></div>
+                    })
+                }
+                   
+                </div>
 
             </>
         )
