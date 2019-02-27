@@ -9,7 +9,7 @@ class FeedTitle extends Component {
     return (
       <div>
     <div className="container">
-        <h1>{`${props.name}'s Personalized Feed`}</h1>
+        <h2>{`${props.name}'s Personalized Feed`}</h2>
         <p>Pursuit Tube</p>
    
       </div>
