@@ -36,25 +36,6 @@ class App extends React.Component {
   }
 }
 
-const search = (search_q) => {
-  axios({
-    method: 'get',
-    url: 'https://www.googleapis.com/youtube/v3/search',
-    params: {
-      part: 'snippet',
-      maxResults: 8,
-      videoDefinition: 'high',
-      type: 'video',
-      videoEmbeddable: 'true',
-      key: 'AIzaSyDtAqZXePfycqRHFBWKigdq0MqfhQvpRjs',
-      q: 'search_q',
-      pageToken: ''
-    }
-  })
-    .then((data) => {
-      console.log(data)
-    })
-}
 
 export default App;
 
