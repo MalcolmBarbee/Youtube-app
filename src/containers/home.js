@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Feed from './feed';
+import FeedTitle from '../components/feedTitle';
 
 class Home extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <FeedTitle/>
         <h2>HELLO</h2> 
         {
           this.state.feedList.map((feed,i) =>{
