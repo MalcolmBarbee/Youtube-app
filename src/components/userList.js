@@ -4,26 +4,26 @@ class NameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'What username would you like?',
+      value: 'What username would you like to use?',
       username: ''
       usernameError: {username: ''},
       usernameValid: false //
         }; // displayed value will be this.state.value
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+  handleInputChange = (e) => {
+    this.setState({value: e.target.value
+    });
+  };
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
+//   handleSubmit(e) {
+//     alert('A name was submitted: ' + this.state.value);
+//     event.preventDefault();
+//   }
   
   render() {
+      const { username } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
