@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Feed from './feed';
+import FeedTitle from '../components/feedTitle';
 
 class Home extends Component {
   constructor(props) {
