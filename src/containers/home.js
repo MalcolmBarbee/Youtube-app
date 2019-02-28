@@ -13,8 +13,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <FeedTitle/>
-        <h2>HELLO</h2> 
         {
           this.state.feedList.map((feed,i) =>{
             return <Feed search= {feed}/>
