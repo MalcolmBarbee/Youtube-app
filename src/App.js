@@ -46,7 +46,7 @@ class App extends React.Component {
         <div>
           <div className="logo">
             <h1>Pursuit Tube</h1>
-
+            <FeedTitle />
             <ul className="header">
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/user">User</NavLink></li>
