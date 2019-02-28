@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios'
-import { Route, NavLink,Link, withRouter } from "react-router-dom";
+import { Route, NavLink, withRouter } from "react-router-dom";
 import Home from './containers/home';
 import User from './containers/user';
 import Search from './containers/Search';
 import './App.css';
 import feededitor from './containers/feededitor';
 import FeedTitle from './components/feedTitle';
+import Video from './components/videos'
 
 const { API_KEY } = 'AIzaSyDtAqZXePfycqRHFBWKigdq0MqfhQvpRjs'
 const API_URL = 'https://www.googleapis.com/youtube/v3/search'
@@ -23,12 +24,15 @@ class App extends React.Component {
       .then(({ data }) => {
         this.setState({
           results: data.data
+          
         })
-      })
+        
+      }) 
   }
+  
 
   handleInputChange = (e) => {
-    console.log(e.target.value)
+    console.log(this.state)
     this.setState({ query: e.target.value })
   }
 
@@ -63,10 +67,12 @@ class App extends React.Component {
             <div className="content">
               <Route exact path="/" component={Home} />
               <Route path="/user" component={User} />
+              <Route path="/video/:id" component={Video} />
               <Route path="/feededitor" component={feededitor} />
             </div>
           </div>
         </div>
+        
     );
   }
 }
