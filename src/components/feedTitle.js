@@ -7,10 +7,10 @@ class FeedTitle extends Component {
     const props = { name: "Mo"}
 
     return (
-      <div>
+      <div>gç
     <div className="container">
-        <h1>{`${props.name}'s Personalized Feed`}</h1>
-        <p>Pursuit Tube</p>
+        <h2>{`${props.name}'s Personalized Feed`}</h2>
+        
    
       </div>
        </div>
@@ -19,4 +19,4 @@ class FeedTitle extends Component {
 }
 
 
-export default FeedTitle;
+export default FeedTitle; 
