@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios'
-import { Route, NavLink, withRouter } from "react-router-dom";
+import { Route, NavLink, Link, withRouter } from "react-router-dom";
 import Home from './containers/home';
 import UserList from './components/userList';
 import Search from './containers/Search';
 import './App.css';
 import feededitor from './containers/feededitor';
 import FeedTitle from './components/feedTitle';
-import Video from './components/videos'
+import Video from './components/videos';
 
 const { API_KEY } = 'AIzaSyDtAqZXePfycqRHFBWKigdq0MqfhQvpRjs'
 const API_URL = 'https://www.googleapis.com/youtube/v3/search'
@@ -37,42 +37,40 @@ class App extends React.Component {
   }
 
   handleClick = (e) => {
-    this.props.history.push('search/'+ this.state.query)
+    this.props.history.push('search/' + this.state.query)
   }
 
 
   render() {
     return (
-        <div>
-          <div className="logo">
-            <h1>Pursuit Tube</h1>
-            <FeedTitle />
-            <ul className="header">
-              <li><NavLink to="/">Home</NavLink></li>
-              <li><NavLink to="/user">User</NavLink></li>
-              <li><NavLink to="/feededitor">Feed Editor</NavLink></li>
+      <div>
+        <div className="logo">
+          <h1>Pursuit Tube</h1>
 
-              <form>
-                <input
-                  placeholder="Search for..."
-                  onChange={this.handleInputChange}
-                />
-                <Search results={this.state.results} />
-              </form>
+          <ul className="header">
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/user">User</NavLink></li>
+            <li><NavLink to="/feededitor">Feed Editor</NavLink></li>
 
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-              <button type="submit" onClick={this.handleClick}><i className="fa fa-search"></i></button>
-            </ul>
+            <input
+              placeholder="Search for..."
+              onChange={this.handleInputChange}
+            />
+            <Search results={this.state.results} /> 
 
-            <div className="content">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <button type="submit" onClick={this.handleClick}><i className="fa fa-search"></i></button>
+          </ul>
+
+          <div className="content">
               <Route exact path="/" component={Home} />
               <Route path="/user" component={UserList} />
-              <Route path="/video/:id" component={Video} />
+              <Route path="/videos/:id" component={Video} />
               <Route path="/feededitor" component={feededitor} />
-            </div>
           </div>
         </div>
-        
+      </div>
     );
   }
 }
