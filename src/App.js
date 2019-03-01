@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import { Route, NavLink, withRouter } from "react-router-dom";
 import Home from './containers/home';
-import User from './containers/user';
+import UserList from './components/userList';
 import Search from './containers/Search';
 import './App.css';
 import feededitor from './containers/feededitor';
@@ -66,7 +66,7 @@ class App extends React.Component {
 
             <div className="content">
               <Route exact path="/" component={Home} />
-              <Route path="/user" component={User} />
+              <Route path="/user" component={UserList} />
               <Route path="/video/:id" component={Video} />
               <Route path="/feededitor" component={feededitor} />
             </div>
