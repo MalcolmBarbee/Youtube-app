@@ -35,14 +35,13 @@ class Feed extends Component {
         this.search(this.props.search)
     }
     render() {
-        console.log(this.state)
         return (
             <>
                 <h4>{this.props.search}</h4>
                 <div className='row'>
                 {
                     this.state.videos.map((video,i) => {
-                        return <div className='col-3'><FeedCard title={video.snippet.title} image={video.snippet.thumbnails.medium.url} channel={video.snippet.channelTitle} time={video.snippet.publishedAt}/></div>
+                        return <div className='col-3'><FeedCard title={video.snippet.title} image={video.snippet.thumbnails.medium.url} channel={video.snippet.channelTitle} time={video.snippet.publishedAt} id={video.id.videoId}/></div>
                     })
                 }
                    
