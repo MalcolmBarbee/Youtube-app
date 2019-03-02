@@ -73,7 +73,7 @@ body {
     background: black;
   }
 
-  .header input[type=text] {
+  .header input{
     float: right;
     padding: 12px;
     font-size: 20px;
