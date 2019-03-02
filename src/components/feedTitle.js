@@ -7,7 +7,7 @@ class FeedTitle extends Component {
     const props = { name: "Mo"}
 
     return (
-      <div>gç
+      <div>
     <div className="container">
         <h2>{`${props.name}'s Personalized Feed`}</h2>
         
