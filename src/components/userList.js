@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { wrap } from "module";
 
 class NameForm extends Component {
   constructor(props) {
@@ -8,25 +7,41 @@ class NameForm extends Component {
       userNames: [        
         "Mo",
         "Taq",
-        "Liz"  
-      ]
+        "Liz",
+      ],
+      inputState: "",
       }
     }
   
+  onUserNameChange (newUserName) {
+    this.setState(function() {
+      return {inputState: newUserName}
+    })
+  }
 
-
+  onUserAdd() {
+    this.setState(function(prevState){
+      return {
+        userNames: prevState.userNames.concat([prevState.inputState])
+      }
+    })
+  }
 
   render () {
-
     return( 
       <div>
       <form>
         <h2>Create a New User</h2>
-        <input type="text"
-        placeholder="User's Name"
+        <input 
+          type="text"
+          placeholder="User's Name"
+          onChange={onUserNameChange}
         />
-        <button onClick={function(e){e.preventDefault();
-          console.log("I was clicked")}}>Add</button>
+        <button 
+          onClick={onUserAdd} 
+          // function(e){e.preventDefault();
+          // console.log("I was clicked");
+         >Add</button>
       </form>
       <h2>User List</h2>
       <ul>
@@ -34,13 +49,12 @@ class NameForm extends Component {
           this.state.userNames.map(
             userName=><li>{
               userName
-            }</li>)
+            }</li>
+            )
         }
-{/*function(userName) {return <li>{userName}</li>})*/}
       </ul>
       </div>
     )
-
     }
   }
  
