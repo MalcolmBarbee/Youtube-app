@@ -21,7 +21,7 @@ class Feed extends Component {
             videoDefinition: 'high',
             type: 'video',
             videoEmbeddable: 'true',
-            key: 'AIzaSyDtAqZXePfycqRHFBWKigdq0MqfhQvpRjs',
+            key: 'AIzaSyD-J2tHP5Vho6nU-CU4s7v19uR81Ip9_FI',
             q: search_q,
             pageToken: ''
           }
