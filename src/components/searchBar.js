@@ -1,24 +1,30 @@
 import React from 'react';
-import './SearchBar.css';
+import './SearchBar.css'
 
-const SearchBar = (props) => {
-    return (
-        <>
-            <div className='row justify-content-md-center'>
-                <div className='nes-container with-title'>
-                    <h2 className="title">Search</h2>
-                    <div className='col-md-auto'>
-                        <input className='nes-input' type="text" onKeyDown={props.handleSearch} list="videoList" />
-                        <datalist className='nes-container is-rounded'  id="videoList">
-                            {props.results.map((e, i) => {
-                                return <option className='nes-container is-rounded' value={e} key={i}>{e}</option>
-                            })}
-                        </datalist>
-                    </div>
-                </div>
+class SearchBar extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={term:''};
+  }
+  onInputChange(term){
+    const name = this.props.searchBoxName || undefined
+    this.setState({term});
+    if(this.props.onSearchTermChange){
+      this.props.onSearchTermChange({name,term})
+    }
+  }
+    render() {
+      const name = this.props.searchBoxName || undefined
+        return (
+            <div className="search-box">
+              <div className="search-icon">
+                <img src="http://share.ashiknesin.com/search-icon.png"></img>
+              </div>
+              <input name={name} className="search-input" id="search" type="text" placeholder="Search" value={this.state.term}
+                onChange={event=>this.onInputChange(event.target.value)} onKeyPress={this.props.onKeyPress|| null}/>
             </div>
-        </>
-    )
+        );
+    }
 }
-
+ 
 export default SearchBar;
