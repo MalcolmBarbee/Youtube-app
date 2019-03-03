@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
 
-
 const Video = (props) => {
+    console.log(props)
     const id = props.match.params.id
     let link = `https://www.youtube.com/embed/${id}?autoplay=1&fs=1&origin=http://localhost:3000`;
   

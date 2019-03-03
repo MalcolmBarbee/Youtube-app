@@ -26,8 +26,8 @@ class Feed extends Component {
             pageToken: ''
           }
         })
-          .then((response) => {
-            console.log(response.data)
+          .then((response, i) => {
+            console.log(response.data.items)
             this.setState({videos:response.data.items})
           })
       }
@@ -44,7 +44,6 @@ class Feed extends Component {
                         return <div className='col-3'><FeedCard title={video.snippet.title} image={video.snippet.thumbnails.medium.url} channel={video.snippet.channelTitle} time={video.snippet.publishedAt} id={video.id.videoId}/></div>
                     })
                 }
-                   
                 </div>
 
             </>

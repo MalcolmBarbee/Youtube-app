@@ -46,9 +46,10 @@ body {
     background-color: black;
     padding: 0;
   }
-  ul.header li a {
+  ul.header li a{
     color: #FFF;
-    font-size: 25px;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
     text-decoration: none;
     padding: 25px;
@@ -59,7 +60,7 @@ body {
     margin: 5px;
   }
 
-  .header button {
+  .link button {
     float: right;
     max-width: 20%;
     padding: 13px;
@@ -69,7 +70,7 @@ body {
     cursor: pointer;
   }
   
-  .header button:hover {
+  .button:hover {
     background: black;
   }
 

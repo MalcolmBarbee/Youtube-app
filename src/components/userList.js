@@ -1,46 +1,62 @@
 import React, { Component } from "react";
-import { wrap } from "module";
 
 class NameForm extends Component {
   constructor(props) {
     super(props)
     this.state={
-      userNames: [        
-        "Mo",
-        "Taq",
-        "Liz"  
-      ]
+      userNames: [],
+      currentUser: '',
+      inputState: "",
       }
     }
   
+  onUserNameChange = (e) => {
+    this.setState({inputState: e.target.value});
+  }
 
+  onUserAdd = () => {
+    const newUserList = [...this.state.userNames]
 
+    newUserList.push(this.state.inputState)
+
+    this.setState( {userNames: newUserList} )
+    this.setState( {currentUser: this.state.inputState} )
+
+  }
 
   render () {
-
+    console.log(this.state)
     return( 
       <div>
       <form>
-        <h2>Create a New User</h2>
-        <input type="text"
-        placeholder="User's Name"
+        <h2>Create a new User</h2>
+        <input 
+          type="text"
+          placeholder="User's Name"
+          onChange={this.onUserNameChange}
         />
-        <button onClick={function(e){e.preventDefault();
-          console.log("I was clicked")}}>Add</button>
+        <button 
+          onClick={this.onUserAdd} 
+          // console.log("I was clicked");
+         >Add</button>
+
       </form>
+      <ul className="list-group">
+        <li className="list-group-item active">{this.userNames}</li>
+        <li className="list-group-item">userNames[]</li>
+      </ul>
       <h2>User List</h2>
       <ul>
         {
           this.state.userNames.map(
-            userName=><li>{
-              userName
-            }</li>)
+            userNames=><li>{
+              userNames
+            }</li>
+            )
         }
-{/*function(userName) {return <li>{userName}</li>})*/}
       </ul>
       </div>
     )
-
     }
   }
  
