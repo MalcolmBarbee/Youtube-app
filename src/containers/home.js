@@ -7,7 +7,8 @@ class Home extends Component {
     super(props) 
 
     this.state={
-      feedList:['food']
+      feedList:['lol','adele','love']
+      
     }
   }
   render() {

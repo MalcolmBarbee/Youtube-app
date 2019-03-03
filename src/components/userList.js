@@ -22,8 +22,6 @@ class NameForm extends Component {
     this.setState( {userNames: newUserList} )
     this.setState( {currentUser: this.state.inputState} )
 
-  }
-
   render () {
     console.log(this.state)
     return( 

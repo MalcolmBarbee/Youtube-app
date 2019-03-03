@@ -1,10 +1,21 @@
-/* THE PURPOSE OF THIS FILE is to create the display of the User's Feed List
-which is created on ./feededitor (5th & final page) and renders 
-on ./home to the left of the Explore section (the section w/thumbnails) */ 
-
 import React from 'react';
-import './feedList.css'
-import './feedListEditor'
+import VideoListItem from './video_list_item';
 
+const FeedList = (props) => {
+    const videoItems = props.videos.map((video) => {
+        return (
+            <VideoListItem 
+                onUserSelected={props.onVideoSelect}           
+                key={video.etag} 
+                video={video} />
+        );
+    });
 
-export default feedList;
+    return (
+        <ul className="col-md-4 list-group">
+            {videoItems}
+        </ul>
+    );
+};
+
+export default FeedList;

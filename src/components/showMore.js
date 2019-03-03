@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 // import { Button }from 'reactstrap';
 import './showmore.css';
 
@@ -19,5 +19,4 @@ const ShowMoreButton = (props) => { // (changeState, offest, results)
 
  
 export default ShowMore;
-
-
+*/

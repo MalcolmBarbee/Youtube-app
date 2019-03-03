@@ -1,30 +1,30 @@
 import React from 'react';
-import './SearchBar.css'
 
-class SearchBar extends React.Component {
-  constructor(props){
-    super(props);
-    this.state={term:''};
-  }
-  onInputChange(term){
-    const name = this.props.searchBoxName || undefined
-    this.setState({term});
-    if(this.props.onSearchTermChange){
-      this.props.onSearchTermChange({name,term})
+class SearchBar extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = { term: '' };
+
+        this.onInputChange = this.onInputChange.bind(this);
     }
-  }
-    render() {
-      const name = this.props.searchBoxName || undefined
+
+    onInputChange(event) {
+        this.setState({ term: event.target.value });
+        this.props.onSearchTermChange(event.target.value);
+    }
+
+    render(){
         return (
-            <div className="search-box">
-              <div className="search-icon">
-                <img src="http://share.ashiknesin.com/search-icon.png"></img>
-              </div>
-              <input name={name} className="search-input" id="search" type="text" placeholder="Search" value={this.state.term}
-                onChange={event=>this.onInputChange(event.target.value)} onKeyPress={this.props.onKeyPress|| null}/>
+            <div className="search-bar">
+                <input                
+                    value={this.state.term}
+                    placeholder="Search For.."
+                    onChange={this.onInputChange} 
+                />               
             </div>
-        );
+        );        
     }
+
 }
- 
+
 export default SearchBar;
