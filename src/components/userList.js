@@ -22,8 +22,6 @@ class NameForm extends Component {
     this.setState( {userNames: newUserList} )
     this.setState( {currentUser: this.state.inputState} )
 
-  }
-
   render () {
     console.log(this.state)
     return( 
@@ -39,6 +37,8 @@ class NameForm extends Component {
           onClick={this.onUserAdd} 
           // console.log("I was clicked");
          >Add</button>
+
+  if (this.setState.newUserList.includes(this.onUserNameChange)) throw "Sorry, that username has been taken.  Please try another.""
 
       </form>
       <ul className="list-group">
