@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+// import NameForm from './components/userList';
  
 class feedEditor extends Component {
   constructor(props) {
     super(props)
-    this.state={
+    this.state= {
       searchInput: "",
       usersFeed: [{
         name: "Hervey",
@@ -13,6 +14,18 @@ class feedEditor extends Component {
         // "Mo's Feed",
         
       ]
+    }
+  }
+
+  feedSearch = (e) => {
+console.log(e.target.value)
+if(this.state.searchInput.includes('')){
+  this.setState({searchInput:[]})
+}
+    else if (this.state.searchInput.includes(e.target.value)){
+      this.state.searchInput.map((e) => {
+        this.setState({userFeed:e});
+      })
     }
   }
   //on change input handle change
@@ -26,7 +39,7 @@ class feedEditor extends Component {
           <input type="text"
           onChange={
             (e)=>{
-              console.log(e)
+              console.log(e.target.value)
             }
           }
           placeholder="Feed Name"
@@ -34,7 +47,7 @@ class feedEditor extends Component {
           <button onClick={function(e){e.preventDefault();
          console.log("Button has been clicked")}}>Add</button>
         </form>
-        <h2>Feed List</h2>
+           <h2> Feed List</h2>
         <ul>
           {
             this.state.usersFeed.map(
