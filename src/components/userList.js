@@ -5,29 +5,31 @@ class NameForm extends Component {
     super(props)
     this.state={
       userNames: [],
+      currentUser: '',
       inputState: "",
       }
     }
   
-  onUserNameChange (newUserName) {
-    this.setState(function() {
-      return {inputState: newUserName}
-    })
+  onUserNameChange = (e) => {
+    this.setState({inputState: e.target.value});
   }
 
-  onUserAdd() {
-    this.setState(function(prevState){
-      return {
-        userNames: prevState.userNames.concat([prevState.inputState])
-      }
-    })
+  onUserAdd = () => {
+    const newUserList = [...this.state.userNames]
+
+    newUserList.push(this.state.inputState)
+
+    this.setState( {userNames: newUserList} )
+    this.setState( {currentUser: this.state.inputState} )
+
   }
 
   render () {
+    console.log(this.state)
     return( 
       <div>
       <form>
-        <h2>Create a New User</h2>
+        <h2>Create a new User</h2>
         <input 
           type="text"
           placeholder="User's Name"
@@ -35,16 +37,22 @@ class NameForm extends Component {
         />
         <button 
           onClick={this.onUserAdd} 
-          // function(e){e.preventDefault();
           // console.log("I was clicked");
          >Add</button>
+
+  if (this.setState.newUserList.includes(this.onUserNameChange)) throw "Sorry, that username has been taken.  Please try another.""
+
       </form>
+      <ul className="list-group">
+        <li className="list-group-item active">{this.userNames}</li>
+        <li className="list-group-item">userNames[]</li>
+      </ul>
       <h2>User List</h2>
       <ul>
         {
           this.state.userNames.map(
-            userName=><li>{
-              userName
+            userNames=><li>{
+              userNames
             }</li>
             )
         }
@@ -55,62 +63,3 @@ class NameForm extends Component {
   }
  
 export default NameForm;
-
-// import React, { Component } from "react";
-
-// class Users extends Component {
-//   constructor (props) {
-//     super(props)
-    
-//     this.state = {
-//       userNames: [],
-//       inputState: ""
-//     }
-    
-//     this.onInputChange = this.onInputChange.bind(this)
-//     this.onUserAdd = this.onUserAdd.bind(this)
-//   }
-  
-//   onInputChange (event) {
-//     var newState = event.target.value
-//     this.setState(() => {
-//       return {
-//         inputState: newState,
-//       }
-//     })
-//   }
-  
-//   onUserAdd (event) {
-//     event.preventDefault()
-//     this.setState(prevState => {
-//       return {
-//         userNames: userNames.concat([prevState.inputState]),
-//         inputState: "",
-//       }
-//     })
-//   }
-  
-//   render () {
-//     return(
-//       <div>
-//         <form>
-//           <h2>Create a new user</h2>
-//           <input
-//             type="text"
-//             placeholder="User's name"
-//             onChange={this.onInputChange}
-//           />
-//           <button
-//             onClick={this.onUserAdd}
-//           >Add</button>
-//         </form>
-//         <h2>User List</h2>
-//         <ul>
-//           {this.state.userNames.map(name => <li>{name}</li>)}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Users;
